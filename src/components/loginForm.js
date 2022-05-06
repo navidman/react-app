@@ -1,5 +1,8 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
 import * as React from 'react'
-import {Input, FormGroup} from './lib'
+import {Input, FormGroup, Spinner} from './lib'
 
 const LoginForm = ({onSubmit, submitButton}) => {
     function handleSubmit(event) {
@@ -30,7 +33,10 @@ const LoginForm = ({onSubmit, submitButton}) => {
                 <label htmlFor="password">Password</label>
                 <Input id="password" type="password" />
             </FormGroup>
-            <div>{React.cloneElement(submitButton, {type: 'submit'})}</div>
+            <div>
+                {React.cloneElement(submitButton, {type: 'submit'})}
+                <Spinner css={{marginLeft: 5}} />
+            </div>
         </form>
     )
 }
